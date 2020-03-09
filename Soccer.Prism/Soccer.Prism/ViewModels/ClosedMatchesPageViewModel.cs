@@ -16,6 +16,7 @@ namespace Soccer.Prism.ViewModels
         {
             Title = "Closed";
             LoadMatches();
+
         }
 
         public List<MatchResponse> Matches
