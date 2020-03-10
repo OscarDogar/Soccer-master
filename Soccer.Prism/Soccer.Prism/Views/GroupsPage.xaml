@@ -6,6 +6,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              IconImageSource="ic_action_vpn_key"
              x:Class="Soccer.Prism.Views.GroupsPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
              xmlns:i18n="clr-namespace:Soccer.Prism.Helpers"
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
