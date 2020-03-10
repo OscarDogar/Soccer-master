@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using Soccer.Common.Helpers;
 using Soccer.Common.Models;
+using Soccer.Prism.Helpers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,36 +26,37 @@ namespace Soccer.Prism.ViewModels
             List<Menu> menus = new List<Menu>
             {
                 new Menu
-                {
-                    Icon = "tournament",
-                    PageName = "TournamentsPage",
-                    Title = "Tournaments"
-                },
-                new Menu
-                {
-                    Icon = "prediction",
-                    PageName = "MyPredictionsPage",
-                    Title = "My Predictions"
-                },
-                new Menu
-                {
-                    Icon = "medal",
-                    PageName = "MyPositionsPage",
-                    Title = "My Positions"
-                },
-                new Menu
-                {
-                    Icon = "user",
-                    PageName = "ModifyUserPage",
-                    Title = "Modify User"
-                },
-                new Menu
-                {
-                    Icon = "login",
-                    PageName = "LoginPage",
-                    Title = "Login"
-                }
-            };
+                    {
+                        Icon = "tournament",
+                        PageName = "TournamentsPage",
+                        Title = Languages.Tournaments
+                    },
+                    new Menu
+                    {
+                        Icon = "prediction",
+                        PageName = "MyPredictionsPage",
+                        Title = Languages.MyPredictions
+                    },
+                    new Menu
+                    {
+                        Icon = "medal",
+                        PageName = "MyPositionsPage",
+                        Title = Languages.MyPositions
+                    },
+                    new Menu
+                    {
+                        Icon = "user",
+                        PageName = "ModifyUserPage",
+                        Title = Languages.ModifyUser
+                    },
+                    new Menu
+                    {
+                        Icon = "login",
+                        PageName = "LoginPage",
+                        Title = Languages.Login
+                    }
+                };
+
 
             Menus = new ObservableCollection<MenuItemViewModel>(
                 menus.Select(m => new MenuItemViewModel(_navigationService)
