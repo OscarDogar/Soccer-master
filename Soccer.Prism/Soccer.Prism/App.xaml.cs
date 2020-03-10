@@ -4,6 +4,7 @@ using Soccer.Common.Helpers;
 using Soccer.Common.Services;
 using Soccer.Prism.ViewModels;
 using Soccer.Prism.Views;
+using Syncfusion.Licensing;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,6 +24,7 @@ namespace Soccer.Prism
 
         protected override async void OnInitialized()
         {
+            SyncfusionLicenseProvider.RegisterLicense("MjIxMDc2QDMxMzcyZTM0MmUzMGJSYWZQS0MrNVVYNWN3WlpjT2dudVZnYllTMkt3TEpNd3Z0VFRRdGR2c1k9");
             InitializeComponent();
 
             await NavigationService.NavigateAsync("/SoccerMasterDetailPage/NavigationPage/TournamentsPage");
