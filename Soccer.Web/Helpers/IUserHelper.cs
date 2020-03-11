@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Soccer.Common.Enums;
 using Soccer.Web.Data.Entities;
 using Soccer.Web.Models;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace Soccer.Web.Helpers
         Task CheckRoleAsync(string roleName);
 
         Task AddUserToRoleAsync(UserEntity user, string roleName);
+
+        Task<UserEntity> AddUserAsync(AddUserViewModel model, string path, UserType userType);
 
         Task<bool> IsUserInRoleAsync(UserEntity user, string roleName);
 
