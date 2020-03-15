@@ -26,6 +26,11 @@ namespace Soccer.Web.Helpers
 
         Task<MatchEntity> ToMatchEntityAsync(MatchViewModel model, bool isNew);
 
+        PredictionResponse ToPredictionResponse(PredictionEntity predictionEntity);
+
+        MatchResponse ToMatchResponse(MatchEntity matchEntity);
+
+
         MatchViewModel ToMatchViewModel(MatchEntity matchEntity);
 
         TournamentResponse ToTournamentResponse(TournamentEntity tournamentEntity);

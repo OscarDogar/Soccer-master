@@ -17,6 +17,8 @@ namespace Soccer.Web.Helpers
 
         Task CheckRoleAsync(string roleName);
 
+        Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
+
         Task AddUserToRoleAsync(UserEntity user, string roleName);
 
         Task<UserEntity> AddUserAsync(AddUserViewModel model, string path, UserType userType);
