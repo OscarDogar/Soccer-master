@@ -26,10 +26,8 @@ namespace Soccer.Web.Data
             await CheckRolesAsync();
             await CheckTeamsAsync();
             await CheckTournamentsAsync();
-            await CheckUserAsync("1010", "Juan", "Zuluaga", "jzuluaga55@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
-            await CheckUserAsync("2020", "Juan", "Zuluaga", "jzuluaga55@hotmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
-            await CheckUserAsync("3030", "Juan", "Zuluaga", "carlos.zuluaga@globant.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
-            await CheckUserAsync("4040", "Juan", "Zuluaga", "juanzuluaga2480@correo.itm.edu.co", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
+            await CheckUserAsync("1010", "Oscar", "D", "oscardoria14@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
+            await CheckUserAsync("2020", "Oscar", "D1", "NassaPhp@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
             await CheckPreditionsAsync();
         }
 
@@ -91,7 +89,12 @@ namespace Soccer.Web.Data
 
                 await _userHelper.AddUserAsync(user, "123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+
+                var token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+                await _userHelper.ConfirmEmailAsync(user, token);
+
             }
+
 
             return user;
         }

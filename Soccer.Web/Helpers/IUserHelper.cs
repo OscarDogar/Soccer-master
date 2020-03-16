@@ -17,6 +17,10 @@ namespace Soccer.Web.Helpers
 
         Task CheckRoleAsync(string roleName);
 
+        Task<string> GenerateEmailConfirmationTokenAsync(UserEntity user);
+
+        Task<IdentityResult> ConfirmEmailAsync(UserEntity user, string token);
+
         Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
 
         Task AddUserToRoleAsync(UserEntity user, string roleName);
