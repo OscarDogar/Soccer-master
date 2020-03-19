@@ -25,6 +25,10 @@ namespace Soccer.Web.Helpers
 
         Task AddUserToRoleAsync(UserEntity user, string roleName);
 
+        Task<string> GeneratePasswordResetTokenAsync(UserEntity user);
+
+        Task<IdentityResult> ResetPasswordAsync(UserEntity user, string token, string password);
+
         Task<UserEntity> AddUserAsync(AddUserViewModel model, string path, UserType userType);
 
         Task<bool> IsUserInRoleAsync(UserEntity user, string roleName);
