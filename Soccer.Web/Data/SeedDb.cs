@@ -27,7 +27,7 @@ namespace Soccer.Web.Data
             await CheckTeamsAsync();
             await CheckTournamentsAsync();
             await CheckUserAsync("1010", "Oscar", "D", "oscardoria14@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
-            await CheckUserAsync("2020", "Oscar", "D1", "NassaPhp@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
+            await CheckUsersAsync();
             await CheckPreditionsAsync();
         }
 
@@ -44,6 +44,13 @@ namespace Soccer.Web.Data
                 }
 
                 await _context.SaveChangesAsync();
+            }
+        }
+        private async Task CheckUsersAsync()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                await CheckUserAsync($"100{i}", "User", $"{i}", $"user{i}@yopmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
             }
         }
 
