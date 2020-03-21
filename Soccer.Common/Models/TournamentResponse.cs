@@ -22,8 +22,8 @@ namespace Soccer.Common.Models
         public string LogoPath { get; set; }
 
         public string LogoFullPath => string.IsNullOrEmpty(LogoPath)
-        ? "https://SoccerWeb0.azurewebsites.net//images/noimage.png"
-        : $"https://SoccerWeb0.azurewebsites.net{LogoPath.Substring(1)}";
+        ? "https://SoccerWebod.azurewebsites.net//images/noimage.png"
+        : $"https://SoccerWebod.azurewebsites.net{LogoPath.Substring(1)}";
 
         public List<GroupResponse> Groups { get; set; }
     }
