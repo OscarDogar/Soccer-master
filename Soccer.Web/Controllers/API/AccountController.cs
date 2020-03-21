@@ -186,5 +186,52 @@ namespace Soccer.Web.Controllers.API
             return NoContent();
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        [Route("ChangePassword")]         
+        public async Task<IActionResult> ChangePasswordAPI([FromBody] ChangePasswordRequest request)
+        {  //In this part i change the name of the class because the class was refence in the other account  controller
+            //and when you click the button to change the password this is the class that was calling
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = "Bad request",
+                    Result = ModelState
+                });
+            }
+
+            CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
+            Resource.Culture = cultureInfo;
+
+            UserEntity user = await _userHelper.GetUserAsync(request.Email);
+            if (user == null)
+            {
+                return BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = Resource.UserDoesntExists
+                });
+            }
+
+            IdentityResult result = await _userHelper.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
+            if (!result.Succeeded)
+            {
+                var message = result.Errors.FirstOrDefault().Description;
+                return BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = message.Contains("password") ? Resource.IncorrectCurrentPassword : message
+                });
+            }
+
+            return Ok(new Response
+            {
+                IsSuccess = true,
+                Message = Resource.PasswordChangedSuccess
+            });
+        }
+
     }
 }
