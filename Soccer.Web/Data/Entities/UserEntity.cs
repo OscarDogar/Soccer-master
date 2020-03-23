@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Soccer.Common.Enums;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Soccer.Web.Data.Entities
 {
@@ -27,6 +28,8 @@ namespace Soccer.Web.Data.Entities
 
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
+
+        public int Points => Predictions == null ? 0 : Predictions.Sum(p => p.Points);
 
         [Display(Name = "User Type")]
         public UserType UserType { get; set; }

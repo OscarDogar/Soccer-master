@@ -192,9 +192,8 @@ namespace Soccer.Web.Controllers.API
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         [Route("ChangePassword")]         
-        public async Task<IActionResult> ChangePasswordAPI([FromBody] ChangePasswordRequest request)
-        {  //In this part i change the name of the class because the class was refence in the other account  controller
-            //and when you click the button to change the password this is the class that was calling
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
+        { 
             if (!ModelState.IsValid)
             {
                 return BadRequest(new Response

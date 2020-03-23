@@ -26,6 +26,10 @@ namespace Soccer.Common.Models
 
         public string FullName => $"{FirstName} {LastName}";
 
+        public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
+    ? "https://SoccerWebod.azurewebsites.net//images/noimage.png"
+    : $"https://SoccerWebod.azurewebsites.net{PicturePath.Substring(1)}";
+
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
     }
 }
